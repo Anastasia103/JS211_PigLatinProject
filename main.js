@@ -9,20 +9,48 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
+// if the first letter is a vowel add "yay"
 
 
 const pigLatin = (word) => {
+// let vowelArr = ["a", "e", "i", "o", "u"]
+// let newWord = cleanword + "yay"
+// let secondletter =cleanword.slice(1,2)
+// let firstletter= cleanword.slice(0,1)
+// let newerWord = cleanword.substring(1) + firstletter +"ay"  
+// let newestWord = cleanword.substring(2) + cleanword.slice(0,2) +"ay"
+let groupOfWords = word.split(" ")
+let newlistwords = ""
+for (let value of groupOfWords) {
+  let cleanwords = value.trim().toLowerCase()
+  let vowelArr = ["a", "e", "i", "o", "u"]
+  let newWord = cleanwords + "yay"
+  let secondletter =cleanwords.slice(1,2)
+  let firstletter= cleanwords.slice(0,1)
+  let newerWord = cleanwords.substring(1) + firstletter +"ay"  
+  let newestWord = cleanwords.substring(2) + cleanwords.slice(0,2) +"ay"
+if (vowelArr.includes(firstletter)) {
+   newlistwords += newWord + " "
+}
+else if (vowelArr.includes(secondletter)) {
+   newlistwords += newerWord + " "
+}
+else if (cleanwords= typeof(string)){
+   newlistwords += newestWord +" "
+}
 
   // Your code here
-
 }
+console.log(newlistwords)
+}
+
 
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
 // to close it ctrl + C
 const getPrompt = () => {
   rl.question('word ', (answer) => {
-    console.log( pigLatin(answer) );
+    pigLatin(answer);
     getPrompt();
   });
 }
